@@ -21,13 +21,11 @@ shortTitle: セキュリティ ログ
 
 The security log lists all actions performed within the last 90 days.
 
-{% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes or ghec %}
-2. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
+{% data reusables.user-settings.access_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}
-{% data reusables.user_settings.security %}
-3. [Security history] の下に、自分のログが表示されます。 ![セキュリティ ログ](/assets/images/help/settings/user_security_log.png)
-4. エントリをクリックして、イベントに関する詳細情報を表示します。 ![セキュリティ ログ](/assets/images/help/settings/user_security_history_action.png)
+1. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
@@ -238,16 +236,16 @@ The security log lists all actions performed within the last 90 days.
 
 ### `user` カテゴリアクション
 
-| アクション                                                                                                                                                                    | 説明                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add_email`                                                                                                                                                              | トリガーされる条件                                                                                                                                                        |
-| {% ifversion not ghae %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% ifversion fpt or ghec %} |                                                                                                                                                                  |
-| `codespaces_trusted_repo_access_granted`                                                                                                                                 | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを許可するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |
-| `codespaces_trusted_repo_access_revoked`                                                                                                                                 | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを禁止するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |{% endif %}
+| アクション                                                                                                                                                                    | 説明                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `add_email`                                                                                                                                                              | トリガーされる条件                                                                                                                                                                                                                |
+| {% ifversion not ghae %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% ifversion fpt or ghec %} |                                                                                                                                                                                                                          |
+| `codespaces_trusted_repo_access_granted`                                                                                                                                 | Triggered when you [allow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).    |
+| `codespaces_trusted_repo_access_revoked`                                                                                                                                 | Triggered when you [disallow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces). |{% endif %}
 | `create`                                                                                                                                                                 | 新しいユーザアカウントを作成するとトリガーされます。{% ifversion not ghae %}
-| `change_password`                                                                                                                                                        | 自分のパスワードを変更するときにトリガーされます。                                                                                                                                        |
+| `change_password`                                                                                                                                                        | 自分のパスワードを変更するときにトリガーされます。                                                                                                                                                                                                |
 | `forgot_password`                                                                                                                                                        | [パスワード のリセット](/articles/how-can-i-reset-my-password)を要求したときにトリガーされます。{% endif %}
-| `hide_private_contributions_count`                                                                                                                                       | [自分のプロファイルでプライベート コントリビューションを非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)ときにトリガーされます。                                     |
+| `hide_private_contributions_count`                                                                                                                                       | [自分のプロファイルでプライベート コントリビューションを非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)ときにトリガーされます。                                                                                             |
 | `login`                                                                                                                                                                  | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
 
 
